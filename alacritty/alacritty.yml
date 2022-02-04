@@ -1,0 +1,98 @@
+env:
+    TERM: xterm-256color
+
+cursor:
+  # Cursor style
+  style:
+    # Cursor shape
+    #
+    # Values for `shape`:
+    #   - ▇ Block
+    #   - _ Underline
+    #   - | Beam
+    shape: Block 
+
+    # Cursor blinking state
+    #
+    # Values for `blinking`:
+    #   - Never: Prevent the cursor from ever blinking
+    #   - Off: Disable blinking by default
+    #   - On: Enable blinking by default
+    #   - Always: Force the cursor to always blink
+    blinking: Off
+
+  # Vi mode cursor style
+  #
+  # If the vi mode cursor style is `None` or not specified, it will fall back to
+  # the style of the active value of the normal cursor.
+  #
+  # See `cursor.style` for available options.
+  vi_mode_style: Beam 
+
+  # Cursor blinking interval in milliseconds.
+  blink_interval: 250 
+
+  # If this is `true`, the cursor will be rendered as a hollow box when the
+  # window is not focused.
+  unfocused_hollow: true
+
+  # Thickness of the cursor relative to the cell width as floating point number
+  # from `0.0` to `1.0`.
+  #thickness: 0.15
+
+
+
+font:
+  # Normal (roman) font face
+  normal:
+    # Font family
+    #
+    # Default:
+    #   - (macOS) Menlo
+    #   - (Linux) monospace
+    #   - (Windows) Consolas
+    family: 'FantasqueSansMono Nerd Font' 
+
+  bold:
+    family: 'FantasqueSansMono Nerd Font' 
+  italic:
+    family: 'FantasqueSansMono Nerd Font'
+
+    # The `style` can be specified to pick a specific face.
+    style: Regular
+  size: 12
+
+window:
+   padding:
+      x: 15
+      y: 15
+   opacity: 0.85
+
+
+# BEGIN ACE
+colors:
+  primary:
+    background: '#191731'
+    foreground: '#77e4f4'
+  cursor:
+    text:       '#191731'
+    cursor:     '#77e4f4'
+  normal:
+    black:      '#191731'
+    red:        '#5A4EA9'
+    green:      '#0360DC'
+    yellow:     '#BF52B6'
+    blue:       '#0394AB'
+    magenta:    '#039FE2'
+    cyan:       '#48B6C4'
+    white:      '#77e4f4'
+  bright:
+    black:      '#539faa'
+    red:        '#5A4EA9'
+    green:      '#0360DC'
+    yellow:     '#BF52B6'
+    blue:       '#0394AB'
+    magenta:    '#039FE2'
+    cyan:       '#48B6C4'
+    white:      '#77e4f4'
+# END ACE
