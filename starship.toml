@@ -1,14 +1,14 @@
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
 [username]
-format = " [$user]($style)@"
-show_always = true
-style_root = "bold red"
-style_user = "bold red"
+format = "[$user]($style)@"
+show_always = false
+style_root = "Bold red"
+style_user = "Bold red"
 
 # Second param
 [hostname]
-disabled = false
+disabled = true 
 format = "[$hostname]($style) in "
 ssh_only = false
 style = "bold dimmed red"
@@ -19,7 +19,7 @@ trim_at = "-"
 style = "purple"
 truncate_to_repo = true
 truncation_length = 0
-truncation_symbol = "repo: "
+truncation_symbol = "  "
 
 # Fourth param
 [sudo]
@@ -44,7 +44,7 @@ min_time = 1
 # Somethere at the beginning
 [battery]
 charging_symbol = ""
-disabled = true
+disabled = false
 discharging_symbol = ""
 full_symbol = ""
 
@@ -54,12 +54,12 @@ style = "bold red"
 threshold = 15
 
 [[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
-disabled = true
+disabled = false 
 style = "bold yellow"
 threshold = 50
 
 [[battery.display]]  # "bold green" style when capacity is between 10% and 30%
-disabled = true
+disabled = false 
 style = "bold green"
 threshold = 80
 
@@ -73,76 +73,77 @@ time_format = "%T"
 # Prompt: param 2
 [character]
 error_symbol = " [×](bold red)"
-success_symbol = " [λ](bold red)"
+#success_symbol = " [λ](bold red)"
+success_symbol = " [](bold red)"
 
 # SYMBOLS
 [status]
-disabled = false
+disabled = true
 format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
 map_symbol = true
 pipestatus = true
 symbol = "🔴"
 
-[aws]
-symbol = " "
+#[aws]
+#symbol = " "
 
-[conda]
-symbol = " "
+#[conda]
+#symbol = " "
 
-[dart]
-symbol = " "
+#[dart]
+#symbol = " "
 
-[docker_context]
-symbol = " "
+#[docker_context]
+#symbol = " "
 
-[elixir]
-symbol = " "
+#[elixir]
+#symbol = " "
 
-[elm]
-symbol = " "
+#[elm]
+#symbol = " "
 
 [git_branch]
 symbol = " "
 
-[golang]
-symbol = " "
+#[golang]
+#symbol = " "
 
 [hg_branch]
 symbol = " "
 
-[java]
-symbol = " "
+#[java]
+#symbol = " "
 
-[julia]
-symbol = " "
+#[julia]
+#symbol = " "
 
-[nim]
-symbol = " "
+#[nim]
+#symbol = " "
 
-[nix_shell]
-symbol = " "
+#[nix_shell]
+#symbol = " "
 
-[nodejs]
-symbol = " "
+#[nodejs]
+#symbol = " "
 
-[package]
-symbol = " "
+#[package]
+#symbol = " "
 
-[perl]
-symbol = " "
+#[perl]
+#symbol = " "
 
-[php]
-symbol = " "
+#[php]
+#symbol = " "
 
 [python]
 symbol = " "
 
-[ruby]
-symbol = " "
+#[ruby]
+#symbol = " "
 
-[rust]
-symbol = " "
+#[rust]
+#symbol = " "
 
-[swift]
-symbol = "ﯣ "
+#[swift]
+#symbol = "ﯣ "
 
