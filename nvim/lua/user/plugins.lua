@@ -51,6 +51,8 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
+  use "rakr/vim-one"
+  use "kyoz/purify"
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
@@ -62,7 +64,11 @@ return packer.startup(function(use)
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use "drewtempelmeyer/palenight.vim"
+  use 'whatyouhide/vim-gotham'
   use "dracula/vim"
+  use "patstockwell/vim-monokai-tasty"
+  use 'tribela/vim-transparent'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
