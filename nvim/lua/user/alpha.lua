@@ -6,6 +6,10 @@ end
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = {
 
+  [[                                                               ]],
+  [[                                                               ]],
+  [[                                                               ]],
+  [[                                                               ]],
   [[ _        _______  _______  _______  _______  _        _______ ]],
   [[( \      (  ___  )(  ___  )(  ____ )(  __   )( \      (  ____ \]],
   [[| (      | (   ) || (   ) || (    )|| (  )  || (      | (    \/]],

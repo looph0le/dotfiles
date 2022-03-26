@@ -69,6 +69,7 @@ return packer.startup(function(use)
   use "dracula/vim"
   use "patstockwell/vim-monokai-tasty"
   use 'tribela/vim-transparent'
+  use "ap/vim-css-color"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
