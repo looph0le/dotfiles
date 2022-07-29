@@ -1,25 +1,26 @@
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
-[username]
-format = "[$user]($style)@"
-show_always = false
-style_root = "Bold red"
-style_user = "Bold red"
+
+#[username]
+#format = "[$user]($style)@"
+#show_always = true 
+#style_root = "Bold red"
+#style_user = "Bold red"
 
 # Second param
-[hostname]
-disabled = true 
-format = "[$hostname]($style) in "
-ssh_only = false
-style = "bold dimmed red"
-trim_at = "-"
+#[hostname]
+#disabled = true 
+#format = "[$hostname]($style) in "
+#ssh_only = false
+#style = "bold dimmed red"
+#trim_at = "-"
 
 # Third param
-[directory]
-style = "purple"
-truncate_to_repo = true
-truncation_length = 0
-truncation_symbol = "  "
+#[directory]
+#style = "purple"
+#truncate_to_repo = true
+#truncation_length = 0
+#truncation_symbol = "  "
 
 # Fourth param
 [sudo]
@@ -35,7 +36,7 @@ style = "white"
 
 # Last param in the first line/row
 [cmd_duration]
-disabled = false
+disabled = true 
 format = "took [$duration]($style)"
 min_time = 1
 
@@ -43,38 +44,35 @@ min_time = 1
 ## SECOND LINE/ROW: Prompt
 # Somethere at the beginning
 [battery]
-charging_symbol = ""
-disabled = false
-discharging_symbol = ""
-full_symbol = ""
+charging_symbol = " "
+disabled = true 
+discharging_symbol = " "
+full_symbol = " "
 
 [[battery.display]]  # "bold red" style when capacity is between 0% and 10%
-disabled = false
 style = "bold red"
-threshold = 15
+threshold = 30
 
 [[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
-disabled = false 
 style = "bold yellow"
-threshold = 50
+threshold = 69
 
 [[battery.display]]  # "bold green" style when capacity is between 10% and 30%
-disabled = false 
 style = "bold green"
-threshold = 80
+threshold = 100
 
 # Prompt: optional param 1
 [time]
-disabled = true
-format = " 🕙 $time($style)\n"
-style = "bright-white"
+disabled = true 
+format = "🕙 $time($style)\n"
+style = "green"
 time_format = "%T"
 
 # Prompt: param 2
 [character]
-error_symbol = " [×](bold red)"
+error_symbol = "[ﲅ ](bold red)"
 #success_symbol = " [λ](bold red)"
-success_symbol = " [](bold red)"
+success_symbol = "[ﮊ ](bold red)"
 
 # SYMBOLS
 [status]
