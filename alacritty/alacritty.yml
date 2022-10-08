@@ -52,10 +52,10 @@ font:
     #   - (Linux) monospace
     #   - (Windows) Consolas
     family: 'FantasqueSansMono Nerd Font' 
-    style: Regular
+    style: Bold Italic 
 
   bold:
-    family: 'FantasqueSansMono Nerd Font' 
+    family: 'JetBrainsMono Nerd Font' 
     style: Bold
 
   italic:
