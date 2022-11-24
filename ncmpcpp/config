@@ -2,10 +2,13 @@
 mpd_music_dir = "~/Music/"
 visualizer_in_stereo = "yes"
 visualizer_data_source = "/tmp/mpd.fifo"
-visualizer_output_name = "my_fifo"
+visualizer_output_name = "pulse audio"
 progressbar_look = "━━╸"
-#visualizer_sync_interval = "30"
+visualizer_sync_interval = "10"
 
+mpd_crossfade_time = "5"
+
+execute_on_song_change = notify-send "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)"
 visualizer_type = "spectrum"
 #visualizer_type = "wave"
 #visualizer_type = "wave_filled"

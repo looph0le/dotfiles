@@ -1,0 +1,19 @@
+sw_volume: 100
+audio_device_state:1:pulse audio
+audio_device_state:1:FIFO
+state: stop
+current: 0
+random: 0
+repeat: 1
+single: 0
+consume: 0
+crossfade: 5
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Toh-Phir-Aao-Tera-Mera-Rishta.opus
+1:shiv-tandav-sotram.opus
+2:AARAMBH [1XFq4tgqJ5g].opus
+3:Mann Mera (Reprise) ｜ JalRaj  ｜ Gajendra Verma ｜ Table No 21 ｜ Latest Hindi Cover 2021 [GMGD-C6j0U8].opus
+4:We Rollin (Official Audio) - Shubh [RLhuPD2ASKE].opus
+playlist_end
