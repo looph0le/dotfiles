@@ -1,0 +1,27 @@
+user: white
+group: white
+permission:
+  read: white
+  write: white
+  exec: white
+  exec-sticky: white
+  no-access: white
+  octal: white
+  acl: white
+  context: white
+date:
+  hour-old: white
+  day-old: white
+  older: white
+size:
+  none: white
+  small: white
+  medium: white
+  large: white
+inode:
+  valid: white
+  invalid: white
+links:
+  valid: white
+  invalid: white
+tree-edge: white
