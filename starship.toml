@@ -30,10 +30,10 @@ disabled = true
 
 # Before all the version info (python, nodejs, php, etc.)
 [git_status]
-ahead = "⇡${count}"
-behind = "⇣${count}"
+ahead = "⇡ ${count}"
+behind = "⇣ ${count}"
 deleted = "x"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+diverged = "⇕⇡ ${ahead_count}⇣${behind_count}"
 style = "white"
 
 # Last param in the first line/row
