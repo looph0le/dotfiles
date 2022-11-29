@@ -46,9 +46,9 @@ min_time = 1
 ## SECOND LINE/ROW: Prompt
 # Somethere at the beginning
 [battery]
-charging_symbol = ""
-discharging_symbol = ""
-full_symbol = ""
+charging_symbol = " "
+discharging_symbol = " "
+full_symbol = " "
 
 [[battery.display]]  # "bold red" style when capacity is between 0% and 15%
 style = "bold red"
@@ -74,7 +74,8 @@ time_format = "%T"
 error_symbol = " [×](bold red)"
 # success_symbol = " [╰─λ](bold red)"
 # success_symbol = " [╰─ ](bold red)"
-success_symbol = " [](pink)"
+#success_symbol = " [ ](pink)"
+success_symbol = "[ ](bold blue)"
 
 # SYMBOLS
 [status]
@@ -84,65 +85,17 @@ map_symbol = true
 pipestatus = true
 symbol = "🔴"
 
-# [aws]
-# symbol = " "
-#
-# [conda]
-# symbol = " "
-#
-# [dart]
-# symbol = " "
-#
-# [docker_context]
-# symbol = " "
-#
-# [elixir]
-# symbol = " "
-#
-# [elm]
-# symbol = " "
-#
 [git_branch]
 symbol = " "
-#
-# [golang]
-# symbol = " "
-#
+
 [hg_branch]
 symbol = " "
-#
-# [java]
-# symbol = " "
-#
-# [julia]
-# symbol = " "
-#
-# [nim]
-# symbol = " "
-#
-# [nix_shell]
-# symbol = " "
-#
-# [nodejs]
-# symbol = " "
-#
-# [package]
-# symbol = " "
-#
-# [perl]
-# symbol = " "
-#
-# [php]
-# symbol = " "
-#
-# [python]
-# symbol = " "
-#
-# [ruby]
-# symbol = " "
-#
-# [rust]
-# symbol = " "
-#
-# [swift]
-# symbol = "ﯣ "
+
+[c]
+style = "bold green"
+symbol = " "
+
+[java]
+style = "bold green"
+symbol = " "
+
