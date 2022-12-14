@@ -5,20 +5,12 @@ end
 
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = {
-
-  [[                                                               ]],
-  [[                                                               ]],
-  [[                                                               ]],
-  [[                                                               ]],
-  [[ _        _______  _______  _______  _______  _        _______ ]],
-  [[( \      (  ___  )(  ___  )(  ____ )(  __   )( \      (  ____ \]],
-  [[| (      | (   ) || (   ) || (    )|| (  )  || (      | (    \/]],
-  [[| |      | |   | || |   | || (____)|| | /   || |      | (__    ]],
-  [[| |      | |   | || |   | ||  _____)| (/ /) || |      |  __)   ]],
-  [[| |      | |   | || |   | || (      |   / | || |      | (      ]],
-  [[| (____/\| (___) || (___) || )      |  (__) || (____/\| (____/\]],
-  [[(_______/(_______)(_______)|/       (_______)(_______/(_______/]],
-
+	[[                               __                ]],
+	[[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+	[[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+	[[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+	[[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+	[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
 }
 dashboard.section.buttons.val = {
 	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
@@ -26,7 +18,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
 	dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
 	dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
-	dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
+	dashboard.button("c", "  Configuration", ":e $MYVIMRC <CR>"),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
 
@@ -36,7 +28,7 @@ local function footer()
 	-- local fortune = handle:read("*a")
 	-- handle:close()
 	-- return fortune
-	return "mitanshpanchal@gmail.com"
+	return "looph0le.github.io"
 end
 
 dashboard.section.footer.val = footer()
