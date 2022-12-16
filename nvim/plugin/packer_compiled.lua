@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  gruvbox = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/impatient.nvim",
@@ -144,6 +149,11 @@ _G.packer_plugins = {
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -153,6 +163,26 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["neovim-ayu"] = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/neovim-ayu",
+    url = "https://github.com/Shatur/neovim-ayu"
+  },
+  ["noctis.nvim"] = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/noctis.nvim",
+    url = "https://github.com/kartikp10/noctis.nvim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
+  nvim = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -168,6 +198,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-transparent"] = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/nvim-transparent",
+    url = "https://github.com/xiyaowong/nvim-transparent"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -194,6 +229,11 @@ _G.packer_plugins = {
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -204,10 +244,31 @@ _G.packer_plugins = {
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["poimandres.nvim"] = {
+    config = { "\27LJ\2\n<\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\15poimandres\frequire\0" },
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/poimandres.nvim",
+    url = "https://github.com/olivercederborg/poimandres.nvim"
+  },
+  ["prettier.nvim"] = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/prettier.nvim",
+    url = "https://github.com/MunifTanjim/prettier.nvim"
+  },
   ["project.nvim"] = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
+  },
+  pywal = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/pywal",
+    url = "https://github.com/AlphaTechnolog/pywal.nvim"
+  },
+  spaceduck = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/spaceduck",
+    url = "https://github.com/pineapplegiant/spaceduck"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -223,16 +284,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
-    url = "https://github.com/vim-airline/vim-airline-themes"
   },
   ["vim-bbye"] = {
     loaded = true,
@@ -252,6 +303,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: poimandres.nvim
+time([[Config for poimandres.nvim]], true)
+try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\15poimandres\frequire\0", "config", "poimandres.nvim")
+time([[Config for poimandres.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

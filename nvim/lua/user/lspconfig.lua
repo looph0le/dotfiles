@@ -74,7 +74,7 @@ nvim_lsp.flow.setup {
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+--  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities
 }
@@ -122,7 +122,8 @@ nvim_lsp.astro.setup {
 }
 
 nvim_lsp.clangd.setup {
-
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
