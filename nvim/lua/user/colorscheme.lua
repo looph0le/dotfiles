@@ -16,7 +16,7 @@ require("tokyonight").setup({
   -- or leave it empty to use the default settings
   style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   light_style = "day", -- The theme is used when the background is set to light
-  transparent = false, -- Enable this to disable setting the background color
+  transparent = true, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
@@ -89,7 +89,7 @@ require('onedark').setup  {
 }
 
 require("catppuccin").setup {
-	flavour = "mocha", -- latte, frappe, macchiato, mocha
+	flavour = "macchiato", -- latte, frappe, macchiato, mocha
 	term_colors = true,
 	transparent_background = true,
 	no_italic = false,
@@ -101,7 +101,7 @@ require("catppuccin").setup {
 		functions = {"italic"},
 		keywords = {},
 		strings = {},
-		variables = {},
+		variables = {"italic"},
 		numbers = {},
 		booleans = {},
 		properties = {},
@@ -170,5 +170,5 @@ require("catppuccin").setup {
 
 
 --pywal.setup()
-vim.cmd.colorscheme "tokyonight"
+vim.cmd.colorscheme "catppuccin"
 --vim.cmd.colorscheme ""

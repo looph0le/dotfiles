@@ -25,7 +25,7 @@ local options = {
   shiftwidth = 2,                          -- the number of spaces inserted for each indentation
   tabstop = 2,                             -- insert 2 spaces for a tab
   cursorline = false,                       -- highlight the current line
-  number = true,                           -- set numbered lines
+  number = false,                           -- set numbered lines
   relativenumber = false,                  -- set relative numbered lines
   numberwidth = 5,                         -- set number column width to 2 {default 4}
 
@@ -34,7 +34,7 @@ local options = {
   linebreak = true,                        -- companion to wrap, don't split words
   scrolloff = 8,                           -- minimal number of screen lines to keep above and below the cursor
   sidescrolloff = 8,                       -- minimal number of screen columns either side of cursor if wrap is `false`
-  guifont = "Sarasa Mono SC Nerd:h12",               -- the font used in graphical neovim applications
+  guifont = "Sarasa Mono SC Nerd:h10",               -- the font used in graphical neovim applications
   whichwrap = "bs<>[]hl",                  -- which "horizontal" keys are allowed to travel to prev/next line
 }
 
@@ -43,6 +43,10 @@ for k, v in pairs(options) do
 end
 
 vim.g.neovide_transparency = 0.9
+vim.g.neovide_cursor_vfx_mode = "pixiedust"
+vim.g.neovide_cursor_vfx_partical_lifetime = 5
+vim.g.neovide_cursor_vfx_opacity = 200.0
+vim.g.neovide_cursor_vfx_particle_density = 100.0
 
 -- vim.opt.shortmess = "ilmnrx"                        -- flags to shorten vim messages, see :help 'shortmess'
 vim.opt.shortmess:append "c"                           -- don't give |ins-completion-menu| messages
