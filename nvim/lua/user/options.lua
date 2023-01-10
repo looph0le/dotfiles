@@ -1,5 +1,6 @@
 local options = {
   backup = false,                          -- creates a backup file
+  laststatus = 0,
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
   cmdheight = 0,                           -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
@@ -16,7 +17,7 @@ local options = {
   splitbelow = true,                       -- force all horizontal splits to go below current window
   splitright = true,                       -- force all vertical splits to go to the right of current window
   swapfile = false,                        -- creates a swapfile
-  termguicolors = true,                    -- set term gui colors (most terminals support this)
+  termguicolors = false,                    -- set term gui colors (most terminals support this)
   timeoutlen = 300,                        -- time to wait for a mapped sequence to complete (in milliseconds)
   undofile = true,                         -- enable persistent undo
   updatetime = 300,                        -- faster completion (4000ms default)
@@ -27,8 +28,7 @@ local options = {
   cursorline = false,                       -- highlight the current line
   number = false,                           -- set numbered lines
   relativenumber = false,                  -- set relative numbered lines
-  numberwidth = 5,                         -- set number column width to 2 {default 4}
-
+  numberwidth = 4,                         -- set number column width to 2 {default 4}
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
   wrap = false,                             -- display lines as one long line
   linebreak = true,                        -- companion to wrap, don't split words
@@ -36,6 +36,7 @@ local options = {
   sidescrolloff = 8,                       -- minimal number of screen columns either side of cursor if wrap is `false`
   guifont = "Sarasa Mono SC Nerd:h10",               -- the font used in graphical neovim applications
   whichwrap = "bs<>[]hl",                  -- which "horizontal" keys are allowed to travel to prev/next line
+  options = off,
 }
 
 for k, v in pairs(options) do

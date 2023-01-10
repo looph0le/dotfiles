@@ -89,6 +89,16 @@ _G.packer_plugins = {
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
+  ["ayu-vim"] = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/ayu-vim",
+    url = "https://github.com/ayu-theme/ayu-vim"
+  },
+  badwolf = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/badwolf",
+    url = "https://github.com/sjl/badwolf"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -264,6 +274,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
+  },
+  purify = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/purify",
+    url = "https://github.com/kyoz/purify"
   },
   pywal = {
     loaded = true,

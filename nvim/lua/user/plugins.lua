@@ -65,12 +65,16 @@ return packer.startup(function(use)
   use {"xiyaowong/nvim-transparent"}
   use {"AlphaTechnolog/pywal.nvim", as = 'pywal'}
   use {"navarasu/onedark.nvim"}
-    use {"pineapplegiant/spaceduck"}
-    use {"Shatur/neovim-ayu"}
-    use {"kartikp10/noctis.nvim"}
-    use {"morhetz/gruvbox"}
-    use {"catppuccin/nvim"}
-    -- Lua
+  use {"pineapplegiant/spaceduck"}
+  use {"Shatur/neovim-ayu"}
+  use {"kartikp10/noctis.nvim"}
+  use {"morhetz/gruvbox"}
+  use {"catppuccin/nvim"}
+  use {"ayu-theme/ayu-vim"}
+  use {"kyoz/purify"}
+  use {"sjl/badwolf"}
+
+  -- Lua
 
 use { 
   'olivercederborg/poimandres.nvim',

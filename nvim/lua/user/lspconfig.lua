@@ -84,6 +84,11 @@ nvim_lsp.sourcekit.setup {
   capabilities = capabilities,
 }
 
+nvim_lsp.omnisharp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 nvim_lsp.sumneko_lua.setup {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
@@ -122,6 +127,11 @@ nvim_lsp.astro.setup {
 }
 
 nvim_lsp.clangd.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
