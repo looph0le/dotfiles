@@ -10,13 +10,40 @@
 
 local pywal = require('pywal')
 
+require('poimandres').setup {
+  bold_vert_split = false, -- use bold vertical separators
+  dim_nc_background = false, -- dim 'non-current' window backgrounds
+  disable_background = true, -- disable background
+  disable_float_background = true, -- disable background for floats
+  disable_italics = false, -- disable italics
+}
+
+-- setup must be called before loading the colorscheme
+-- Default options:
+require("gruvbox").setup({
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = true,
+  strikethrough = true,
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  contrast = "", -- can be "hard", "soft" or empty string
+  palette_overrides = {},
+  overrides = {},
+  dim_inactive = false,
+  transparent_mode = false,
+})
 
 require("tokyonight").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
   style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   light_style = "day", -- The theme is used when the background is set to light
-  transparent = true, -- Enable this to disable setting the background color
+  transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
@@ -42,7 +69,7 @@ require('onedark').setup  {
     -- Main options --
     style = 'deep', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     transparent = true,  -- Show/hide background
-    term_colors = true, -- Change terminal color as per the selected theme style
+    term_colors = false, -- Change terminal color as per the selected theme style
     ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
     cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
@@ -160,5 +187,5 @@ require("catppuccin").setup {
 
 
 --pywal.setup()
-vim.cmd.colorscheme "wal"
+vim.cmd.colorscheme "catppuccin"
 --vim.cmd.colorscheme ""

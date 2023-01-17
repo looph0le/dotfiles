@@ -34,7 +34,7 @@ local options = {
   linebreak = true,                        -- companion to wrap, don't split words
   scrolloff = 8,                           -- minimal number of screen lines to keep above and below the cursor
   sidescrolloff = 8,                       -- minimal number of screen columns either side of cursor if wrap is `false`
-  guifont = "Sarasa Mono SC Nerd:h10",               -- the font used in graphical neovim applications
+  guifont = "JetBrainsMono Nerd Font:h10",               -- the font used in graphical neovim applications
   whichwrap = "bs<>[]hl",                  -- which "horizontal" keys are allowed to travel to prev/next line
   options = off,
 }
@@ -48,6 +48,13 @@ vim.g.neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_cursor_vfx_partical_lifetime = 5
 vim.g.neovide_cursor_vfx_opacity = 200.0
 vim.g.neovide_cursor_vfx_particle_density = 100.0
+vim.g.oxocarbon_lua_transparent = true
+vim.g.neosolarized_contrast = "high"
+vim.g.neosolarized_visibility = "high"
+vim.g.neosolarized_bold = 0
+vim.g.neosolarized_underline = 0
+vim.g.neosolarized_italic = 1
+
 
 -- vim.opt.shortmess = "ilmnrx"                        -- flags to shorten vim messages, see :help 'shortmess'
 vim.opt.shortmess:append "c"                           -- don't give |ins-completion-menu| messages

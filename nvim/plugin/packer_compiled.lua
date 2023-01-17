@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  NeoSolarized = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/NeoSolarized",
+    url = "https://github.com/overcache/NeoSolarized"
+  },
   ["alpha-nvim"] = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/alpha-nvim",
@@ -143,6 +148,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
+  },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["impatient.nvim"] = {
     loaded = true,
@@ -248,6 +258,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/onedark.nvim",
     url = "https://github.com/navarasu/onedark.nvim"
+  },
+  ["oxocarbon-lua.nvim"] = {
+    loaded = true,
+    path = "/home/looph0le/.local/share/nvim/site/pack/packer/start/oxocarbon-lua.nvim",
+    url = "https://github.com/B4mbus/oxocarbon-lua.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
