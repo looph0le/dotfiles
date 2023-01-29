@@ -3,18 +3,20 @@
 
 add_newline	= false
 [username]
-# format = " [╭─$user]($style)@"
-format = "[  $user]($style)@"
+#format = " [╭─$user]($style)@"
+#format = "[  $user]($style)@"
+format = "[$user]($style)[@](bold blue)"
+#format = "[$user]($style)[ ](bold blue)"
 show_always = true
-style_root = "bold yellow"
+style_root = "bold blue"
 style_user = "bold red"
 
 # Second param
 [hostname]
 disabled = false
 format = "[$hostname]($style) "
-ssh_only = false
-style = "bold blue"
+ssh_only = false 
+style = "bold green"
 trim_at = "-"
 
 # Third param
@@ -71,11 +73,11 @@ time_format = "%T"
 
 # Prompt: param 2
 [character]
-error_symbol = " [×](bold red)"
+error_symbol = "[×](bold red)"
 # success_symbol = " [╰─λ](bold red)"
 # success_symbol = " [╰─ ](bold red)"
 #success_symbol = " [ ](pink)"
-success_symbol = "[ ](bold blue)"
+#success_symbol = " [](bold blue)"
 
 # SYMBOLS
 [status]
@@ -84,6 +86,11 @@ format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]
 map_symbol = true
 pipestatus = true
 symbol = "🔴"
+
+[localip]
+ssh_only = true
+format = "*[$localipv4](bold red)\n"
+disabled = false
 
 [git_branch]
 symbol = " "
@@ -99,3 +106,10 @@ symbol = " "
 style = "bold green"
 symbol = " "
 
+[golang]
+format = "[$symbol$version](bold cyan) "
+style = "bold green"
+symbol = " "
+
+[rust]
+style = "bold green"
