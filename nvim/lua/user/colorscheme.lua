@@ -187,5 +187,5 @@ require("catppuccin").setup {
 
 
 --pywal.setup()
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "wal"
 --vim.cmd.colorscheme ""
