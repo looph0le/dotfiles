@@ -1,0 +1,28 @@
+window {
+  font-size: 40px;
+  font-family: "JetBrainsMono Nerd Font";
+  background-color: rgba(50, 50, 50, 0.9);
+  color: white;
+  border: none;
+}
+
+
+#entry {
+  padding: 0.25em;
+}
+
+#entry:selected {
+  color: white;
+  background: linear-gradient(90deg, #41A3DD, #41A3aa);
+}
+
+#text:selected {
+  color: white;
+  background-color: transparent;
+}
+
+#input {
+  background-color: rgba(100, 100, 100, 0.9);
+  padding: 5px;
+  border: none;
+}
