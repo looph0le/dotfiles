@@ -1,0 +1,40 @@
+#!/bin/bash
+
+KEY="ofZWyyIO4d43fGYFAneHKaxitbNZh33x"
+
+rm -rf /home/looph0le/.cache/wallhaven*
+
+
+wallname=$(printf "Space\nForest\nBatman\nSpiderman" | tofi --prompt-text "Search Wallpaper: ")
+
+if [[ $(echo "$wallname" | wc -c) -gt 1 ]]; then
+  
+  #imageUrl=$(curl -s "https://wallhaven.cc/api/v1/search?apikey=$KEY&sorting=toplist" | jq .data[].path | shuf -n1)
+  
+
+  #Fetch wallpaper url
+  imageUrl=$(curl -s "https://wallhaven.cc/api/v1/search?apikey=$KEY&purity=100&ratios=16x9&categories=111&sorting=random&q=$wallname" | jq .data[].path | shuf -n1)
+  
+  #formate url link
+  imageLink=$(echo $imageUrl | cut -d'"' -f2)
+
+  notify-send "Ranwall" "Downloading..."
+
+  #download wallpaper
+  echo $imageLink
+  aria2c  -d ~/.cache/ $imageLink
+
+  #generate theme using pywal
+  wal -i ~/.cache/wallhaven*
+
+  #set wallpaper using swww
+  swww query || swww init
+
+  swww img ~/.cache/wallhaven* --transition-fps 120 --transition-type any --transition-duration 2
+
+  #reload waybar
+  sh ~/.config/waybar/launch.sh
+
+  notify-send "Ranwall" "Wallpaper Changed!"
+
+fi
