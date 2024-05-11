@@ -1,0 +1,14 @@
+font = SF Mono
+font-size = 24
+
+outline-width = 0
+border-width = 3
+padding-left = 3%
+padding-top = 3%
+padding-right = 0
+padding-bottom = 0
+
+width = 50%
+height = 50%
+
+hide-cursor = true

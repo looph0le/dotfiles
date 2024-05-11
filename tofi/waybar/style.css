@@ -1,0 +1,70 @@
+@import "/home/looph0le/.cache/wal/colors-waybar.css";
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
+    font-family: SF Mono;
+    font-size: 14px;
+    color: @foreground;
+    background-color: transparent;
+    border-radius: 12px;
+}
+
+
+#workspaces {
+  margin: 10px;
+  padding: 2px;
+  color: @foreground;
+  background-color: @background;
+  font-size: 10px;
+}
+
+#workspaces button {
+  font-size: 10px;
+}
+
+#workspaces button.active {
+  color: @color6;
+}
+
+#window {
+  margin: 10px;
+  padding: 3px 20px;
+  color: @foreground;
+  background-color: @background;
+}
+
+window#waybar.empty #window {
+  color: @foreground;
+  background-color: transparent;
+}
+
+#clock {
+  margin: 10px;
+  padding: 3px 20px;
+  color: @foreground;
+  background-color: @background;
+}
+
+#battery {
+  margin: 10px;
+  padding: 3px 20px;
+  color: @foreground;
+  background-color: @background;
+
+}
+
+#network {
+  margin: 10px;
+  padding: 3px 20px;
+  color: @foreground;
+  background-color: @background;
+}
+
+#pulseaudio {
+  margin: 10px;
+  padding: 3px 20px;
+  color: @foreground;
+  background-color: @background;
+}
+
