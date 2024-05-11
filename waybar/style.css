@@ -1,70 +1,61 @@
 @import "/home/looph0le/.cache/wal/colors-waybar.css";
 
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
+    font-weight: bold;
     font-family: SF Mono;
-    font-size: 14px;
-    color: @foreground;
+    font-size: 16px;
     background-color: transparent;
-    border-radius: 12px;
+    border-radius: 60px 25px 60px 25px;
 }
 
 
 #workspaces {
-  margin: 10px;
-  padding: 2px;
+  font-weight: bold;
   color: @foreground;
-  background-color: @background;
-  font-size: 10px;
+  background-color: @transparens;
 }
 
 #workspaces button {
-  font-size: 10px;
+  font-weight: bold;
+  color: @color2;
 }
 
 #workspaces button.active {
-  color: @color6;
+  color: @color5;
 }
 
-#window {
-  margin: 10px;
-  padding: 3px 20px;
-  color: @foreground;
-  background-color: @background;
-}
-
-window#waybar.empty #window {
-  color: @foreground;
-  background-color: transparent;
-}
 
 #clock {
-  margin: 10px;
-  padding: 3px 20px;
-  color: @foreground;
-  background-color: @background;
+  margin: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: @background;
+  /* background-color: @color1; */
+  border-width: 2px;
+  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
 }
 
 #battery {
-  margin: 10px;
-  padding: 3px 20px;
-  color: @foreground;
-  background-color: @background;
+  margin: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: @background;
+  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
 
 }
 
 #network {
-  margin: 10px;
-  padding: 3px 20px;
-  color: @foreground;
-  background-color: @background;
+  margin: 3px;
+  padding-left: 10px;
+  padding-right: 20px;
+  color: @background;
+  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
 }
 
 #pulseaudio {
-  margin: 10px;
-  padding: 3px 20px;
-  color: @foreground;
-  background-color: @background;
+  margin: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: @background;
+  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
 }
-
