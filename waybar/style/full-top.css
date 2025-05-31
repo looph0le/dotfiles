@@ -1,0 +1,58 @@
+@import "/home/looph0le/.cache/wal/colors-waybar.css";
+
+* {
+    font-family: Liga SFMonoNerdFont;
+    font-size: 13px;
+    background-color: @transparent;
+    border-radius: 20px 20px 20px 10px;
+}
+
+#workspaces {
+  background: @background;
+  margin: 3px;
+}
+
+#workspaces button {
+  color: @foreground;
+}
+
+#workspaces button.active {
+  color: @foreground;
+  background: @background;
+}
+
+
+#clock {
+  margin: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: @background;
+  /* background-color: @color1; */
+  border-width: 2px;
+  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
+}
+
+#battery {
+  margin: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: @background;
+  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
+
+}
+
+#network {
+  margin: 3px;
+  padding-left: 10px;
+  padding-right: 20px;
+  color: @background;
+  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
+}
+
+#pulseaudio {
+  margin: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: @background;
+  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
+}

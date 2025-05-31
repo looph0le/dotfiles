@@ -1,22 +1,17 @@
 @import "/home/looph0le/.cache/wal/colors-waybar.css";
 
 * {
-    font-weight: bold;
-    font-family: SF Mono;
-    font-size: 16px;
-    background-color: transparent;
-    border-radius: 60px 25px 60px 25px;
+    font-weight: normal;
+    font-family: "JetBrainsMono Nerd Font", "Fira Code", "Ubuntu Mono", "monospace";
+    font-size: 14px;
+    background-color: @background;
 }
 
-
 #workspaces {
-  font-weight: bold;
   color: @foreground;
-  background-color: @transparens;
 }
 
 #workspaces button {
-  font-weight: bold;
   color: @color2;
 }
 
@@ -24,32 +19,27 @@
   color: @color5;
 }
 
-
 #clock {
   margin: 3px;
   padding-left: 10px;
   padding-right: 10px;
-  color: @background;
-  /* background-color: @color1; */
+  color: @color3;
   border-width: 2px;
-  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
 }
 
 #battery {
   margin: 3px;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 20px;
   color: @background;
-  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
-
+  background: @color3;
 }
 
 #network {
   margin: 3px;
   padding-left: 10px;
   padding-right: 20px;
-  color: @background;
-  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
+  color: @color3;
 }
 
 #pulseaudio {
@@ -57,5 +47,5 @@
   padding-left: 10px;
   padding-right: 10px;
   color: @background;
-  background: linear-gradient(60deg, @color3 10%, @color5 50% ,@color2 100%);
+  background: @color3;
 }
