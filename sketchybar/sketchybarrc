@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+CONFIG_DIR="$HOME/.config/sketchybar"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+ITEM_DIR="$CONFIG_DIR/items"
+
+source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/icons.sh"
+
+# Bar
+sketchybar --bar \
+  height=34 \
+  color=$BAR_COLOR \
+  border_width=0 \
+  corner_radius=0 \
+  position=top \
+  sticky=on \
+  topmost=on \
+  blur_radius=30 \
+  padding_left=8 \
+  padding_right=8
+
+# Default item properties
+sketchybar --default \
+  icon.font="JetBrainsMono Nerd Font:Bold:14" \
+  icon.color=$LABEL_COLOR \
+  icon.padding_left=6 \
+  icon.padding_right=2 \
+  label.font="SF Mono:Semibold:12" \
+  label.color=$LABEL_COLOR \
+  label.padding_left=2 \
+  label.padding_right=6 \
+  background.color=$ITEM_BG \
+  background.height=24 \
+  background.corner_radius=6 \
+  background.padding_left=2 \
+  background.padding_right=2
+
+# AeroSpace workspace change event
+sketchybar --add event aerospace_workspace_change
+
+# ---- LEFT SIDE ----
+source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/front_app.sh"
+
+# ---- RIGHT SIDE ----
+source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/volume.sh"
+source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/calendar.sh"
+
+# ---- STARTUP - populate initial labels ----
+NAME=calendar source "$PLUGIN_DIR/clock.sh"
+NAME=battery source "$PLUGIN_DIR/battery.sh"
+NAME=volume source "$PLUGIN_DIR/volume.sh"
+NAME=wifi source "$PLUGIN_DIR/wifi.sh"
+NAME=front_app INFO="$(osascript -e 'tell application "System Events" to get name of first process whose frontmost is true' 2>/dev/null)" source "$PLUGIN_DIR/front_app.sh"
