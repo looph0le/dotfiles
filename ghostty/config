@@ -4,11 +4,11 @@ background-opacity = 0.7
 background-blur-radius = 50
 
 # font-family = JetBrainsMono Nerd Font
-font-family = SF Mono 
+# font-family = SF Mono 
 # font-family = FiraCode Nerd Font
 # font-family = MesloLGS Nerd Font Mono
 # font-family = Google Sans Code
-font-style = medium
+# font-style = medium
 # font-size = 14
 font-feature = -liga,-calt,-dlig
 cursor-style = block
