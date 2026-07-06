@@ -1,52 +1,62 @@
 add_newline = false
-palette = "catppuccin_mocha"
+palette = "ghostty_mocha"
 
 format = """
-$username\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
+$rust\
+$nodejs\
+$python\
+$golang\
 $fill\
 $cmd_duration\
 $line_break\
 $character\
 """
 
-[palettes.catppuccin_mocha]
-crust = "#11111b"
+[palettes.ghostty_mocha]
+crust = "#070b0a"
 text = "#cdd6f4"
+subtext0 = "#a6adc8"
 overlay0 = "#6c7086"
+surface0 = "#262837"
 mauve = "#cba6f7"
 lavender = "#b4befe"
-peach = "#fab387"
+peach = "#f5b37a"
 green = "#a6e3a1"
 yellow = "#f9e2af"
 red = "#f38ba8"
 sapphire = "#74c7ec"
-teal = "#94e2d5"
+teal = "#89d5c0"
 sky = "#89dceb"
 
 [username]
-show_always = true
+disabled = false
+show_always = false
+ssh_only = true
 style_user = "bold fg:mauve"
-format = "[$user](style) → "
+format = "[$user](style) "
 
 [directory]
-truncation_length = 3
-format = "[$path](bold fg:text) → "
+truncation_length = 2
+truncation_symbol = "…/"
+truncate_to_repo = true
+style = "bold fg:text"
+format = "[$path]($style) "
 
 [git_branch]
-symbol = ""
-style = "bold fg:lavender"
-format = "[$branch](style) → "
+symbol = "◆ "
+style = "fg:peach"
+format = "[$symbol$branch](style) "
 truncation_length = 15
 truncation_symbol = "…"
 
 [git_state]
 disabled = false
-style = "bold fg:peach"
-format = "[$state( $progress_current of $progress_total)](style) → "
+style = "fg:peach italic"
+format = "([$state( $progress_current of $progress_total)]($style)) "
 cherry_pick = "picking"
 bisect = "bisecting"
 merge = "merging"
@@ -54,21 +64,23 @@ rebase = "rebasing"
 revert = "reverting"
 
 [git_status]
-format = "([$staged$modified$deleted$untracked$ahead_behind](bold fg:overlay0))"
-staged = "[+$count](fg:green) "
-modified = "[!$count](fg:yellow) "
-deleted = "[-$count](fg:red) "
-untracked = "[?$count](fg:sapphire) "
-ahead = "[⇡$count](fg:teal) "
-behind = "[⇣$count](fg:peach) "
-diverged = "[⇕⇡${ahead_count}⇣${behind_count}](fg:mauve) "
+style = "fg:overlay0"
+format = '[$all_status$ahead_behind](style) '
+conflicted = "⚡"
+staged = "[+$count](fg:green)"
+modified = "[~$count](fg:yellow)"
+deleted = "[-$count](fg:red)"
+untracked = "[?](fg:sapphire)"
+ahead = "⇡$count"
+behind = "⇣$count"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 
 [fill]
 symbol = " "
 
 [cmd_duration]
 disabled = false
-style = "bold fg:overlay0"
+style = "fg:overlay0"
 format = "[$duration]($style)"
 min_time = 2_000
 show_milliseconds = false
@@ -77,3 +89,23 @@ show_milliseconds = false
 success_symbol = "[❯](bold fg:sky)"
 error_symbol = "[❯](bold fg:red)"
 vimcmd_symbol = "[❯](bold fg:mauve)"
+
+[rust]
+style = "fg:peach"
+format = "[◇ $version](style) "
+detect_files = ["Cargo.toml"]
+
+[nodejs]
+style = "fg:green"
+format = "[◈ $version](style) "
+detect_files = ["package.json", ".node-version"]
+
+[python]
+style = "fg:yellow"
+format = "[▸ $version](style) "
+detect_files = ["requirements.txt", ".python-version", "pyproject.toml", "Pipfile"]
+
+[golang]
+style = "fg:sapphire"
+format = "[◆ $version](style) "
+detect_files = ["go.mod", "go.sum", "Gopkg.toml"]
