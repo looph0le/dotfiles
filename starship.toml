@@ -1,97 +1,89 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
 add_newline = false
-palette = "ghostty_mocha"
+scan_timeout = 15
+command_timeout = 500
+follow_symlinks = false
 
-format = """
-$directory\
-$git_branch\
-$git_state\
-$git_status\
-$rust\
-$nodejs\
-$python\
-$golang\
-$fill\
-$cmd_duration\
-$line_break\
-$character\
-"""
-
-[palettes.ghostty_mocha]
-crust = "#070b0a"
-text = "#cdd6f4"
-subtext0 = "#a6adc8"
-overlay0 = "#6c7086"
-surface0 = "#262837"
-mauve = "#cba6f7"
-lavender = "#b4befe"
-peach = "#f5b37a"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-red = "#f38ba8"
-sapphire = "#74c7ec"
-teal = "#89d5c0"
-sky = "#89dceb"
+format = """\
+[┌](bold fg:bright-magenta) $directory $git_branch $git_state $git_commit $git_status \
+$rust $nodejs $python $golang \
+$fill \
+$cmd_duration \
+$time
+[└](bold fg:bright-magenta) $status$character"""
 
 [username]
 disabled = false
 show_always = false
-ssh_only = true
-style_user = "bold fg:mauve"
+style_user = "bold fg:bright-magenta"
 format = "[$user](style) "
 
 [directory]
-truncation_length = 2
+truncation_length = 3
 truncation_symbol = "…/"
 truncate_to_repo = true
-style = "bold fg:text"
+style = "bold"
 format = "[$path]($style) "
+read_only = " "
+read_only_style = "fg:red dimmed"
 
 [git_branch]
 symbol = "◆ "
-style = "fg:peach"
-format = "[$symbol$branch](style) "
+style = "bold fg:bright-yellow"
+format = "[$symbol$branch]($style) "
 truncation_length = 15
 truncation_symbol = "…"
 
 [git_state]
-disabled = false
-style = "fg:peach italic"
-format = "([$state( $progress_current of $progress_total)]($style)) "
-cherry_pick = "picking"
-bisect = "bisecting"
-merge = "merging"
-rebase = "rebasing"
-revert = "reverting"
+style = "fg:bright-yellow italic"
+format = "([$state( $progress_current/$progress_total)]($style)) "
+
+[git_commit]
+commit_hash_length = 7
+tag_disabled = true
+only_detached = false
+format = "([$hash](fg:bright-magenta dimmed)) "
 
 [git_status]
-style = "fg:overlay0"
-format = '[$all_status$ahead_behind](style) '
-conflicted = "⚡"
+format = "[$all_status$ahead_behind](fg:bright-black) "
+conflicted = "[⚡$count](fg:red)"
 staged = "[+$count](fg:green)"
 modified = "[~$count](fg:yellow)"
 deleted = "[-$count](fg:red)"
-untracked = "[?](fg:sapphire)"
+untracked = "[?$count](fg:cyan)"
 ahead = "⇡$count"
 behind = "⇣$count"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+diverged = "⇕⇡$ahead_count⇣$behind_count"
 
 [fill]
-symbol = " "
+symbol = "· "
+style = "fg:bright-black"
 
 [cmd_duration]
-disabled = false
-style = "fg:overlay0"
-format = "[$duration]($style)"
-min_time = 2_000
+min_time = 1_500
 show_milliseconds = false
+format = "[$duration](fg:bright-black) "
+
+[time]
+disabled = false
+format = "[$time](fg:bright-black)"
+time_format = "%H:%M"
+
+[status]
+disabled = false
+format = "[$symbol$status](bold fg:red) "
+symbol = "✘"
+map_symbol = true
 
 [character]
-success_symbol = "[❯](bold fg:sky)"
-error_symbol = "[❯](bold fg:red)"
-vimcmd_symbol = "[❯](bold fg:mauve)"
+format = "$symbol "
+success_symbol = "[❯](bold fg:cyan) "
+error_symbol = "[❯](bold fg:red) "
+vimcmd_symbol = "[❮](bold fg:bright-magenta) "
 
 [rust]
-style = "fg:peach"
+style = "fg:bright-yellow"
 format = "[◇ $version](style) "
 detect_files = ["Cargo.toml"]
 
@@ -106,6 +98,6 @@ format = "[▸ $version](style) "
 detect_files = ["requirements.txt", ".python-version", "pyproject.toml", "Pipfile"]
 
 [golang]
-style = "fg:sapphire"
+style = "fg:bright-cyan"
 format = "[◆ $version](style) "
 detect_files = ["go.mod", "go.sum", "Gopkg.toml"]

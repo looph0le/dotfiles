@@ -1,15 +1,15 @@
 # By default Reload config with shft + cmd + ,
 config-file = ?auto/theme.ghostty
-background-opacity = 0.7
-background-blur-radius = 50
+background-opacity = 0.89
+background-blur-radius = 12
 
 # font-family = JetBrainsMono Nerd Font
-# font-family = SF Mono 
+font-family = SF Mono
 # font-family = FiraCode Nerd Font
 # font-family = MesloLGS Nerd Font Mono
 # font-family = Google Sans Code
-# font-style = medium
-# font-size = 14
+font-style = medium
+font-size = 12
 font-feature = -liga,-calt,-dlig
 cursor-style = block
 # cursor-style = underline
@@ -17,7 +17,7 @@ cursor-style-blink = false
 cursor-color = cell-foreground
 cursor-text = cell-background
 unfocused-split-opacity = 0.55
-split-divider-color = #524f67
+split-divider-color = #3b4261
 
 macos-window-buttons = hidden
 # macos-titlebar-style = hidden

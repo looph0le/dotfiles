@@ -23,11 +23,10 @@
 
 ## Color palette preference
 
-- **Style:** Dark & Rich — warm deep background (`#0c0c0a`), red shades throughout
-- **ANSI approach:** All slots lean into the red/warm family (crimson, terracotta, amber, burgundy, berry rose, copper, coral, rust, gold, dusty rose, warm copper)
-- **Foreground:** Warm cream/ivory (`#d6cebd`)
-- **Selection:** Slightly lighter than bg (`#1f1c18`)
-- The current palette is in `auto/theme.ghostty` — user considers this their "nice colorscheme" and wants future color work to follow this same warm-red-dominant direction
+- **Style:** Professional dark — Tokyo Night (`#1a1b26` bg, `#c0caf5` fg)
+- **ANSI approach:** Standard Tokyo Night palette (coral red, green, gold, indigo blue, violet, cyan)
+- **Selection:** `#33467c` bg with `#c0caf5` fg
+- The current palette is in `auto/theme.ghostty` — user wants a basic professional dark theme
 
 ## Edit cycle
 

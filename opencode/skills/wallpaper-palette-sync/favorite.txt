@@ -1,0 +1,16 @@
+FAVORITE WALLPAPER: wallhaven-3q66wd
+"this is good" (rated favorite by user)
+
+CHARACTERISTICS:
+- Mood: moody, atmospheric, cinematic, dark
+- Scene: cyberpunk/urban apartment hallway with fog, wet surfaces, city lights at night
+- Lighting: dark blue/purple night with warm neon accent (mitsuiro light / purple-blue #663399, warm gold #996633)
+- Palette: very dark background (#000000), deep slate blue (#424153), muted gray (#999999), purple accent (#663399), warm gold (#996633)
+- Vibe: neon-noir, wet reflections, glowing city through windows
+
+TAGS: hallway, balcony, fog, mitsuiro light, sky, city, wet, building, pipes, door, city lights, apartments, architecture
+
+NEXT TIME user asks for "similar" wallpaper:
+- Query wallhaven search with tags: q="cyberpunk fog city night" OR q="city lights night rain" OR q="neon noir"
+- Look for dark palettes (#000000 background) with blue/purple + warm accent colors
+- Prefer general/sfw, high resolution, 16:9 or 1.4 ratio
