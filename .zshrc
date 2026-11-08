@@ -106,19 +106,9 @@ export PATH="/Users/mitanshpanchal/.cargo/bin:$PATH"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias pd="cd ~/Developer/"
 eval "$(starship init zsh)"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
 # Added by Antigravity
 export PATH="/Users/mitanshpanchal/.antigravity/antigravity/bin:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
-
-# bun completions
-[ -s "/Users/mitanshpanchal/.bun/_bun" ] && source "/Users/mitanshpanchal/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # (HF_TOKEN intentionally not backed up - keep it in ~/.zshrc only)
 
@@ -134,3 +124,45 @@ export FIN_DATABASE_URL="sqlite:////Users/mitanshpanchal/.fin/finances.db"
 
 # Added by Antigravity IDE
 export PATH="/Users/mitanshpanchal/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# Containerized dev shell.
+# Usage: devbox [project-dir]  -> starts the project's dev container and attaches
+# a per-project tmux session inside it. Closing the terminal keeps it running.
+devbox() {
+  local dir="${1:-$PWD}"
+  dir="${dir:A}"
+  # Walk up until a .devcontainer/compose.yaml is found.
+  while [[ "$dir" != "/" && ! -f "$dir/.devcontainer/compose.yaml" ]]; do
+    dir="${dir:h}"
+  done
+  local compose="$dir/.devcontainer/compose.yaml"
+  if [[ ! -f "$compose" ]]; then
+    echo "dev: no .devcontainer/compose.yaml found" >&2
+    return 1
+  fi
+
+  docker compose -f "$compose" up -d --wait app >/dev/null || return 1
+
+  # First run: mirror devcontainer.json's postCreateCommand so the CLI flow
+  # installs dependencies exactly like VS Code does.
+  if ! docker compose -f "$compose" exec -T app bash -lc 'test -d node_modules || test -d .venv' >/dev/null 2>&1; then
+    local post
+    post=$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1])).get("postCreateCommand",""))' \
+      "$dir/.devcontainer/devcontainer.json" 2>/dev/null)
+    if [[ -n "$post" ]]; then
+      echo "dev: installing dependencies (first run)..."
+      docker compose -f "$compose" exec -T app bash -lc "$post" || return 1
+    fi
+  fi
+
+  docker compose -f "$compose" exec app tmux new -A -s "${dir:t}"
+}
+
+# Stop the dev container for a project (defaults to the current directory).
+devstop() {
+  local dir="${1:-$PWD}"
+  dir="${dir:A}"
+  local compose="$dir/.devcontainer/compose.yaml"
+  [[ -f "$compose" ]] || { echo "devstop: no .devcontainer/compose.yaml in $dir" >&2; return 1; }
+  docker compose -f "$compose" down
+}
