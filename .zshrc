@@ -128,37 +128,59 @@ export PATH="/Users/mitanshpanchal/.antigravity-ide/antigravity-ide/bin:$PATH"
 # Containerized dev shell.
 # Usage: devbox [project-dir]  -> starts the project's dev container and attaches
 # a per-project tmux session inside it. Closing the terminal keeps it running.
+# The existing `dev` command still opens a host tmux session.
 devbox() {
   local dir="${1:-$PWD}"
   dir="${dir:A}"
-  # Walk up until a .devcontainer/compose.yaml is found.
   while [[ "$dir" != "/" && ! -f "$dir/.devcontainer/compose.yaml" ]]; do
     dir="${dir:h}"
   done
   local compose="$dir/.devcontainer/compose.yaml"
-  if [[ ! -f "$compose" ]]; then
-    echo "dev: no .devcontainer/compose.yaml found" >&2
-    return 1
-  fi
+  [[ -f "$compose" ]] || { echo "devbox: no .devcontainer/compose.yaml found" >&2; return 1; }
 
   docker compose -f "$compose" up -d --wait app >/dev/null || return 1
 
-  # First run: mirror devcontainer.json's postCreateCommand so the CLI flow
-  # installs dependencies exactly like VS Code does.
+  # First run: mirror devcontainer.json's postCreateCommand.
   if ! docker compose -f "$compose" exec -T app bash -lc 'test -d node_modules || test -d .venv' >/dev/null 2>&1; then
     local post
     post=$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1])).get("postCreateCommand",""))' \
       "$dir/.devcontainer/devcontainer.json" 2>/dev/null)
-    if [[ -n "$post" ]]; then
-      echo "dev: installing dependencies (first run)..."
-      docker compose -f "$compose" exec -T app bash -lc "$post" || return 1
-    fi
+    [[ -n "$post" ]] && { echo "devbox: installing dependencies (first run)..."; docker compose -f "$compose" exec -T app bash -lc "$post" || return 1; }
   fi
 
-  docker compose -f "$compose" exec app tmux new -A -s "${dir:t}"
+  local proj="${dir:t}" run="docker compose -f ${(q)compose}"
+  local hasdev
+  hasdev=$(python3 -c 'import json,sys;d=json.load(open(sys.argv[1]));print("1" if (d.get("scripts") or {}).get("dev") else "")' "$dir/package.json" 2>/dev/null)
+
+  # postStartCommand (if any) runs on every start, not just the first.
+  local post_start
+  post_start=$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1])).get("postStartCommand",""))' \
+    "$dir/.devcontainer/devcontainer.json" 2>/dev/null)
+  [[ -n "$post_start" ]] && docker compose -f "$compose" exec -T app bash -lc "$post_start" >/dev/null 2>&1
+
+  if ! tmux has-session -t "=${proj}" 2>/dev/null; then
+    tmux new-session -d -s "$proj" -c "$dir" -n edit "nvim ."
+    tmux new-window  -t "=${proj}:" -c "$dir" -n shell "$run exec app zsh"
+    [[ -n "$hasdev" ]] && tmux new-window -t "=${proj}:" -c "$dir" -n serve "$run exec app zsh -lc 'npm run dev'"
+    tmux new-window  -t "=${proj}:" -c "$dir" -n logs  "$run logs -f --tail=200 app"
+    tmux new-window  -t "=${proj}:" -c "$dir" -n test
+    tmux select-window -t "=${proj}:edit"
+    # session-scoped marker: the status bar shows "⬢ <project>"
+    tmux set-option -t "=${proj}:" @dev_container "$proj"
+    tmux set-window-option -t "=${proj}:shell" automatic-rename off
+    tmux set-window-option -t "=${proj}:logs"  automatic-rename off
+  else
+    # Heal panes killed by a container recreate/restart.
+    local w dead
+    for w in shell serve logs; do
+      dead=$(tmux display-message -p -t "=${proj}:$w" '#{pane_dead}' 2>/dev/null)
+      [[ "$dead" = "1" ]] && tmux respawn-pane -k -t "=${proj}:$w" >/dev/null 2>&1
+    done
+  fi
+
+  if [[ -n "${TMUX:-}" ]]; then tmux switch-client -t "=${proj}"; else tmux attach -t "=${proj}"; fi
 }
 
-# Stop the dev container for a project (defaults to the current directory).
 devstop() {
   local dir="${1:-$PWD}"
   dir="${dir:A}"
