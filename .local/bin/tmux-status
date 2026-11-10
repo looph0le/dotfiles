@@ -1,0 +1,38 @@
+#!/bin/sh
+# Color coded Git and Docker segments for the tmux status line.
+dir=${1:-$PWD}
+
+git_part=
+if branch=$(git -C "$dir" symbolic-ref --quiet --short HEAD 2>/dev/null); then
+	:
+elif rev=$(git -C "$dir" rev-parse --short HEAD 2>/dev/null); then
+	branch="@$rev"
+else
+	branch=
+fi
+
+if [ -n "$branch" ]; then
+	if [ -n "$(git -C "$dir" status --porcelain 2>/dev/null)" ]; then
+		git_part="#[fg=#dbbc7f,underscore,us=#dbbc7f] ${branch} *#[nounderscore]"
+	else
+		git_part="#[fg=#a7c080,underscore,us=#a7c080] ${branch}#[nounderscore]"
+	fi
+else
+	git_part='#[fg=#7a8478,underscore,us=#5c6a60]⌂ no-git#[nounderscore]'
+fi
+
+docker_part='#[fg=#e67e80,underscore,us=#e67e80]⬡ Docker off#[nounderscore]'
+if command -v docker >/dev/null 2>&1; then
+	states=$(docker ps -a --format '{{.State}}' 2>/dev/null) && {
+		running=$(printf '%s\n' "$states" | awk 'NF && $1 == "running" { n++ } END { print n+0 }')
+		stopped=$(printf '%s\n' "$states" | awk 'NF && $1 != "running" { n++ } END { print n+0 }')
+		if [ "$stopped" -gt 0 ]; then
+			docker_color='#dbbc7f'
+		else
+			docker_color='#7fbbb3'
+		fi
+		docker_part="#[fg=${docker_color},underscore,us=${docker_color}]⬡ ${running} up · ${stopped} stopped#[nounderscore]"
+	}
+fi
+
+printf '%s #[fg=#5c6a60]│#[default] %s' "$git_part" "$docker_part"
