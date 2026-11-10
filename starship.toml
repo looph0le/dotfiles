@@ -6,98 +6,64 @@ command_timeout = 500
 follow_symlinks = false
 
 format = """\
-[┌](bold fg:bright-magenta) $directory $git_branch $git_state $git_commit $git_status \
-$rust $nodejs $python $golang \
-$fill \
-$cmd_duration \
-$time
-[└](bold fg:bright-magenta) $status$character"""
+$username\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$python\
+$character"""
 
 [username]
 disabled = false
 show_always = false
-style_user = "bold fg:bright-magenta"
-format = "[$user](style) "
+style_user = "bold fg:bright-black"
+format = "[$user]($style) "
 
 [directory]
+style = "bold blue"
 truncation_length = 3
 truncation_symbol = "…/"
 truncate_to_repo = true
-style = "bold"
 format = "[$path]($style) "
-read_only = " "
-read_only_style = "fg:red dimmed"
 
 [git_branch]
-symbol = "◆ "
-style = "bold fg:bright-yellow"
+symbol = ""
+style = "bright-black"
 format = "[$symbol$branch]($style) "
 truncation_length = 15
 truncation_symbol = "…"
 
 [git_state]
-style = "fg:bright-yellow italic"
+style = "bright-black italic"
 format = "([$state( $progress_current/$progress_total)]($style)) "
 
-[git_commit]
-commit_hash_length = 7
-tag_disabled = true
-only_detached = false
-format = "([$hash](fg:bright-magenta dimmed)) "
-
 [git_status]
-format = "[$all_status$ahead_behind](fg:bright-black) "
-conflicted = "[⚡$count](fg:red)"
-staged = "[+$count](fg:green)"
-modified = "[~$count](fg:yellow)"
-deleted = "[-$count](fg:red)"
-untracked = "[?$count](fg:cyan)"
+style = "cyan"
+format = "[($all_status$ahead_behind)]($style) "
+conflicted = "[⚡$count](red)"
+staged = "[+$count](green)"
+modified = "[*$count](red)"
+deleted = "[-$count](red)"
+untracked = "[?$count](bright-black)"
 ahead = "⇡$count"
 behind = "⇣$count"
-diverged = "⇕⇡$ahead_count⇣$behind_count"
-
-[fill]
-symbol = "· "
-style = "fg:bright-black"
 
 [cmd_duration]
 min_time = 1_500
 show_milliseconds = false
-format = "[$duration](fg:bright-black) "
+style = "yellow"
+format = "[$duration]($style) "
 
-[time]
-disabled = false
-format = "[$time](fg:bright-black)"
-time_format = "%H:%M"
-
-[status]
-disabled = false
-format = "[$symbol$status](bold fg:red) "
-symbol = "✘"
-map_symbol = true
+[python]
+format = "[$virtualenv]($style) "
+style = "bright-black"
+detect_extensions = []
+detect_files = []
 
 [character]
 format = "$symbol "
-success_symbol = "[❯](bold fg:cyan) "
-error_symbol = "[❯](bold fg:red) "
-vimcmd_symbol = "[❮](bold fg:bright-magenta) "
-
-[rust]
-style = "fg:bright-yellow"
-format = "[◇ $version](style) "
-detect_files = ["Cargo.toml"]
-
-[nodejs]
-style = "fg:green"
-format = "[◈ $version](style) "
-detect_files = ["package.json", ".node-version"]
-
-[python]
-style = "fg:yellow"
-format = "[▸ $version](style) "
-detect_files = ["requirements.txt", ".python-version", "pyproject.toml", "Pipfile"]
-
-[golang]
-style = "fg:bright-cyan"
-format = "[◆ $version](style) "
-detect_files = ["go.mod", "go.sum", "Gopkg.toml"]
+success_symbol = "[❯](bold green) "
+error_symbol = "[❯](bold red) "
+vimcmd_symbol = "[❮](bold yellow) "
